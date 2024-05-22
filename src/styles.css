@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  color: #9ab8c5;
+  background-color: #323232;
+  padding: 10rem;
+}
+
+input {
+  color: inherit;
+  background-color: inherit;
+}
+
+button {
+  color: inherit;
+  background-color: inherit;
+  border: 2px solid black;
+}
+
+button:hover {
+  background-color: #000000;
+}
