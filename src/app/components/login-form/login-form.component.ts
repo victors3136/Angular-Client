@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {LoginService} from "../../services/login.service";
+import {SessionService} from "../../services/session.service";
 import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
 
@@ -19,7 +19,7 @@ export class LoginFormComponent {
   responseMessage: string = '';
   visible: boolean = true;
 
-  constructor(private builder: FormBuilder, private httpClient: LoginService, private router: Router) {
+  constructor(private builder: FormBuilder, private httpClient: SessionService, private router: Router) {
     this.usernameForm = this.builder.group({
       username: ['', Validators.required]
     });

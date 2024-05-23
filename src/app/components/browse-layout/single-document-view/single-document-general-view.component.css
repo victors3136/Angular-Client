@@ -1,0 +1,10 @@
+td {
+  width: 16vw;
+  padding: 1rem;
+  border: 0.1rem solid;
+  border-collapse: collapse;
+}
+button {
+  margin: 0;
+  padding: 10px;
+}

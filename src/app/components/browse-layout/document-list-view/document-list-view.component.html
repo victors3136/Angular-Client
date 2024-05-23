@@ -1,0 +1,5 @@
+<table style="width: 63vw">
+  <tr *ngFor="let document of documents; trackBy: trackByDocumentId">
+    <app-single-document-view [subject]="document"/>
+  </tr>
+</table>

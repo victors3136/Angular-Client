@@ -1,0 +1,12 @@
+<div *ngIf="document">
+  <h1>{{ document.Name }}</h1>
+  <p>Extension: {{ document.Extension }}</p>
+  <p>Author ID: {{ document.AuthorID }}</p>
+  <div>
+    <h3>Contents:</h3>
+    <pre>{{ content }}</pre>
+  </div>
+</div>
+<div *ngIf="!document">
+  <p>Loading...</p>
+</div>
