@@ -22,9 +22,9 @@ export class DocumentsService {
   private getOneUrl: string = 'http://localhost/server/get-one-document.php';
   getOne = (id: number) => this.httpClient.get<{
     success: boolean,
-    document?: Document,
+    documents?: Document[],
     message?: string
-  }>(this.getOneUrl + '/' + id);
+  }>(this.getOneUrl + '?id=' + id);
 
   private addUrl: string = 'http://localhost/server/add-document.php';
   add = (document: Document) => this.httpClient.post(this.addUrl, document);

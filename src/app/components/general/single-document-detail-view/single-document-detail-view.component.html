@@ -1,12 +1,12 @@
-<div *ngIf="document">
-  <h1>{{ document.Name }}</h1>
-  <p>Extension: {{ document.Extension }}</p>
-  <p>Author ID: {{ document.AuthorID }}</p>
+<div *ngIf="this.document">
+  <h1>{{ this.document.Name ?? 'Unknown name'}}</h1>
+  <p>Extension: {{ this.document.Extension ?? 'Unknown' }}</p>
+  <p>Author: {{ this.document.Author ?? 'Anonymous'}}</p>
   <div>
     <h3>Contents:</h3>
-    <pre>{{ content }}</pre>
+    <pre>{{ this.content ?? 'No content provided' }}</pre>
   </div>
 </div>
-<div *ngIf="!document">
+<div *ngIf="!this.document">
   <p>Loading...</p>
 </div>

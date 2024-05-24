@@ -2,7 +2,8 @@
   <td style="width: 1.5vw">{{ subject?.ID ?? -1 }}</td>
   <td style="width: 30vw">{{ subject?.Name ?? "Name" }}</td>
   <td style="width: 1.5vw">{{ subject?.Extension ?? "Extension" }}</td>
-  <td style="width: 30vw">
-    <button>View</button>
+  <td style="width: 20vw">{{ subject?.Author ?? "Anonymous" }}</td>
+  <td style="width: 10vw">
+    <button (click)="viewDocument()">View</button>
   </td>
 </tr>

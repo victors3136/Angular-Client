@@ -2,20 +2,20 @@ export class Document {
   ID: number = -1;
   Name: string = '';
   Extension: string = '';
-  AuthorID: number = -1;
-  Contents: null | Blob | ArrayBuffer = null;
+  Author: string = '';
+  Contents: null | Blob = null;
 
   constructor(
     id: number = -1,
     name: string = '',
     extension: string = '',
-    authorId: number = -1,
-    contents: null | Blob | ArrayBuffer = null) {
+    author: string = '',
+    contents: null | Blob = null) {
 
     this.ID = id;
     this.Name = name;
     this.Extension = extension;
-    this.AuthorID = authorId;
+    this.Author = author;
     this.Contents = contents;
   }
 
