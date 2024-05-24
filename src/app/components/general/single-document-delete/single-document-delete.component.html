@@ -1,0 +1,11 @@
+<div *ngIf="!this.response">
+  <p>Loading...</p>
+</div>
+<div *ngIf="this.response">
+  <div *ngIf="!this.response.success">
+    <p>{{ this.response.message ?? 'Unexpected request failure' }}</p>
+  </div>
+  <div *ngIf="this.response.success">
+    <p> Success! </p>
+  </div>
+</div>

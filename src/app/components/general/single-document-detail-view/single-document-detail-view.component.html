@@ -1,8 +1,8 @@
 <div *ngIf="this.document">
-  <h1>{{ this.document.Name ?? 'Unknown name'}}</h1>
+  <h1>{{ this.document.Name ?? 'Unknown name' }}</h1>
   <p>Extension: {{ this.document.Extension ?? 'Unknown' }}</p>
-  <p>Author: {{ this.document.Author ?? 'Anonymous'}}</p>
-  <div>
+  <p>Author: {{ this.document.Author ?? 'Anonymous' }}</p>
+  <div style="overflow-wrap: break-word; word-wrap: break-word">
     <h3>Contents:</h3>
     <pre>{{ this.content ?? 'No content provided' }}</pre>
   </div>

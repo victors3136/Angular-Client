@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NgIf} from "@angular/common";
+import {DocumentsService} from "../../../services/documents.service";
 
 @Component({
   selector: 'app-single-document-view',
@@ -31,8 +32,6 @@ export class SingleDocumentDetailViewComponent implements OnInit {
     const id = parseInt(documentId);
     this.documentsService.getOne(id).subscribe({
       next: (response) => {
-        console.log(response);
-        console.log(response.documents);
         if (!response.success) {
           window.alert(response.message ?? 'Fetching document failed');
           return;
@@ -48,7 +47,7 @@ export class SingleDocumentDetailViewComponent implements OnInit {
         }
         this.content = this.document.Contents;
       },
-      error: (err) => window.alert(err.message)
+      error: (err:any) => window.alert(err.message)
     });
   }
 }

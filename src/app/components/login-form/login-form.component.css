@@ -1,3 +1,7 @@
+bodt {
+  padding: 10rem;
+}
+
 form {
   display: flex;
   flex-direction: column;

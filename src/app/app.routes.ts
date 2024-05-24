@@ -9,15 +9,26 @@ import {
 import {
   SingleDocumentDetailViewComponent
 } from "./components/general/single-document-detail-view/single-document-detail-view.component";
+import {
+  SingleDocumentDeleteComponent
+} from "./components/general/single-document-delete/single-document-delete.component";
+import {
+  PersonalEditDocumentFormComponent
+} from "./components/my-files-layout/personal-edit-document-form/personal-edit-document-form.component";
+import {
+  PersonalAddDocumentFormComponent
+} from "./components/my-files-layout/personal-add-document-form/personal-add-document-form.component";
 
 export const routes: Routes = [
   {path: '', component: LoginFormComponent},
   {path: 'home', component: HomeButtonLayoutComponent},
   {path: 'my-files', component: PersonalDocumentListViewComponent},
   {path: 'browse', component: DocumentListViewComponent},
-  {path: 'upload', component: HomeButtonLayoutComponent},
-  {path: 'log-out', component: HomeButtonLayoutComponent},
-  {path: 'document/:id', component: SingleDocumentDetailViewComponent}
+  {path: 'upload', component: PersonalAddDocumentFormComponent},
+  {path: 'edit', component: PersonalEditDocumentFormComponent},
+  {path: 'log-out', component: LoginFormComponent},
+  {path: 'document/:id', component: SingleDocumentDetailViewComponent},
+  {path: 'delete/:id', component: SingleDocumentDeleteComponent}
 ];
 
 @NgModule({

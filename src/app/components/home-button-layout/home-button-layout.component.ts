@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: 'app-home-button-layout',
@@ -9,15 +10,19 @@ import {Router} from "@angular/router";
   styleUrl: './home-button-layout.component.css'
 })
 export class HomeButtonLayoutComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private session: SessionService) {
   }
 
   submit(option: string) {
+    // @ts-ignore
     switch (option) {
+      case 'log-out':
+        this.session.logout();
+        this.router.navigate([option]).catch(_ => window.alert(`Could not find ${option}`));
+        break;
       case 'my-files':
       case 'upload':
       case 'browse':
-      case 'log-out':
         this.router.navigate([option]).catch(_ => window.alert(`Could not find ${option}`));
         break;
       default:

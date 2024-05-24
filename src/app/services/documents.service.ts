@@ -30,9 +30,14 @@ export class DocumentsService {
   add = (document: Document) => this.httpClient.post(this.addUrl, document);
 
   private editUrl: string = 'http://localhost/server/edit-document.php';
-  edit = (id: number, document: Document) => this.httpClient.put(this.editUrl + "/" + id, document);
+  edit = (id: number, document: Document) => this.httpClient.put<{
+    success: boolean
+  }>(`${this.editUrl}/${id}`, document);
 
   private deleteUrl: string = 'http://localhost/server/delete-document.php';
-  delete = (id: number) => this.httpClient.delete(this.deleteUrl + "/" + id);
+  delete = (id: number) => {
+    console.log(`Calling delete on ${this.deleteUrl}/${id}`);
+    return this.httpClient.delete<{ success: boolean, message?: string }>(this.deleteUrl + "/" + id);
+  }
 
 }
