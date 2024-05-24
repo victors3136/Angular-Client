@@ -8,12 +8,12 @@ import {Observable} from "rxjs";
 export class SessionService {
 
   private url = 'http://localhost/server/login.php';
-  private username: string | null = null;
+  private username: string | undefined = undefined;
 
   constructor(private http: HttpClient) {
   }
 
-  submit(username: string): Observable<any> {
+  submit(username: string) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     const body = {username: username};
     console.log(body);
@@ -21,11 +21,11 @@ export class SessionService {
     return this.http.post<any>(this.url, body, {headers: headers});
   }
 
-  getUsername(): string | null {
+  getUsername(): string | undefined {
     return this.username;
   }
 
   logout() {
-    this.username = null;
+    this.username = undefined;
   }
 }

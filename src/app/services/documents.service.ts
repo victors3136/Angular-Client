@@ -27,12 +27,19 @@ export class DocumentsService {
   }>(this.getOneUrl + '?id=' + id);
 
   private addUrl: string = 'http://localhost/server/add-document.php';
-  add = (document: Document) => this.httpClient.post(this.addUrl, document);
+  add = (data: { user: string, document: Document }) => this.httpClient.post<{
+    success: boolean,
+    message?: string
+  }>(this.addUrl, data);
 
   private editUrl: string = 'http://localhost/server/edit-document.php';
-  edit = (id: number, document: Document) => this.httpClient.put<{
-    success: boolean
-  }>(`${this.editUrl}/${id}`, document);
+  edit = (id: number, data: { user: string | undefined, document: Document }) => {
+    console.log(data);
+    return this.httpClient.put<{
+      success: boolean,
+      message?: string
+    }>(`${this.editUrl}/${id}`, data);
+  }
 
   private deleteUrl: string = 'http://localhost/server/delete-document.php';
   delete = (id: number) => {

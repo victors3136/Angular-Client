@@ -3,14 +3,14 @@ export class Document {
   Name: string = '';
   Extension: string = '';
   Author: string = '';
-  Contents: null | Blob = null;
+  Contents: undefined | File = undefined;
 
   constructor(
     id: number = -1,
     name: string = '',
     extension: string = '',
     author: string = '',
-    contents: null | Blob = null) {
+    contents: undefined | File = undefined) {
 
     this.ID = id;
     this.Name = name;

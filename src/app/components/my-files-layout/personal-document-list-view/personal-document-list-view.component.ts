@@ -2,11 +2,14 @@ import {Component} from '@angular/core';
 import {Document} from "../../../model/document";
 import {DocumentsService} from "../../../services/documents.service";
 import {SessionService} from "../../../services/session.service";
-import {SingleDocumentGeneralViewComponent} from "../../browse-layout/single-document-view/single-document-general-view.component";
+import {
+  SingleDocumentGeneralViewComponent
+} from "../../browse-layout/single-document-view/single-document-general-view.component";
 import {NgForOf} from "@angular/common";
 import {
   PersonalSingleDocumentViewComponent
 } from "../personal-single-document-view/personal-single-document-view.component";
+import {catchError, EMPTY} from "rxjs";
 
 @Component({
   selector: 'app-personal-document-list-view',

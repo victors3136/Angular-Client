@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Document} from "../../../model/document";
 import {Router} from "@angular/router";
+import {DocumentProliferationService} from "../../../services/document-proliferation.service";
 
 @Component({
   selector: 'app-personal-single-document-view',
@@ -12,7 +13,7 @@ import {Router} from "@angular/router";
 export class PersonalSingleDocumentViewComponent {
   @Input() subject: Document | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private documentProliferation: DocumentProliferationService) {
   }
 
   viewDocument(): void {
@@ -31,6 +32,16 @@ export class PersonalSingleDocumentViewComponent {
       this.router.navigate(['/delete', subject.ID])
         .catch(_discard => {
           window.alert(`Could not find /delete/${subject.ID}`);
+        });
+    }
+  }
+
+  editDocument(): void {
+    if (this.subject) {
+      this.documentProliferation.setDocument(this.subject);
+      this.router.navigate(['/edit'])
+        .catch(_discard => {
+          window.alert(`Could not find /edit`);
         });
     }
   }

@@ -1,0 +1,11 @@
+<form [formGroup]="docForm" (ngSubmit)="submit()">
+  <div class="form-row">
+    <label for="Name">Name: </label>
+    <input id="Name" type="text" formControlName="Name">
+  </div>
+  <div class="form-row">
+    <button type="submit" [disabled]="!docForm.valid">
+      Save
+    </button>
+  </div>
+</form>
