@@ -14,11 +14,10 @@ export class HomeButtonLayoutComponent {
   }
 
   submit(option: string) {
-    // @ts-ignore
     switch (option) {
       case 'log-out':
         this.session.logout();
-        this.router.navigate([option]).catch(_ => window.alert(`Could not find ${option}`));
+        this.router.navigate(['']).catch(_ => window.alert(`Could not find ${option}`));
         break;
       case 'my-files':
       case 'upload':

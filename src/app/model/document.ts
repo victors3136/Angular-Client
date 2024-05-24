@@ -1,16 +1,16 @@
 export class Document {
-  ID: number = -1;
-  Name: string = '';
-  Extension: string = '';
-  Author: string = '';
-  Contents: undefined | File = undefined;
+  ID: number;
+  Name: string;
+  Extension: string;
+  Author: string;
+  Contents: string;
 
   constructor(
     id: number = -1,
     name: string = '',
     extension: string = '',
     author: string = '',
-    contents: undefined | File = undefined) {
+    contents: string = '') {
 
     this.ID = id;
     this.Name = name;

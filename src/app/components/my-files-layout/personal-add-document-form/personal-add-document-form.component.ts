@@ -18,7 +18,7 @@ export class PersonalAddDocumentFormComponent {
   docForm = this.formBuilder.group({
     Name: ['', Validators.required],
     Extension: ['', Validators.required],
-    Contents: [undefined]
+    Contents: ['', Validators.required]
   })
 
   constructor(private formBuilder: FormBuilder,
@@ -32,7 +32,13 @@ export class PersonalAddDocumentFormComponent {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement.files && inputElement.files.length) {
       const file = inputElement.files[0];
-      this.docForm.patchValue({Contents: file});
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.docForm.patchValue({
+          Contents: reader.result as string
+        });
+      };
+      reader.readAsText(file);
     }
   }
 
@@ -41,13 +47,16 @@ export class PersonalAddDocumentFormComponent {
       return;
     }
     const username: string = this.session.getUsername() ?? '';
+
     const doc = new Document(-1,
+      (this.docForm.value.Name ?? ''),
+      (this.docForm.value.Extension ?? ''),
       username,
-      this.docForm.value.Name ?? '',
-      this.docForm.value.Extension ?? '',
-      this.docForm.value.Contents);
+      (this.docForm.value.Contents ?? '')
+    );
     this.service.add({user: username, document: doc}).subscribe({
       next: (response) => {
+        console.log(response);
         if (!response.success) {
           window.alert(response.message ?? 'Unexpected error occurred');
           return;

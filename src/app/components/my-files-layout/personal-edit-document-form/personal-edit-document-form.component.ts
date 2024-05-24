@@ -51,7 +51,8 @@ export class PersonalEditDocumentFormComponent implements OnInit {
           window.alert(response.message ?? 'Unexpected error occurred');
           return;
         }
-        this.router.navigate(['/my-files']).catch(_discard => window.alert('Could not get to /my-files'));
+        this.router.navigate(['/my-files'])
+          .catch(_discard => window.alert('Could not get to /my-files'));
       }
     });
   }
